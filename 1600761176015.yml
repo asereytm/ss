@@ -7,6 +7,7 @@ external-controller: 127.0.0.1:9090
 
 proxies:
   - {name: francebordex 🇦🇱, server: fr.timevpn.com, port: 10178, type: ss, cipher: aes-256-cfb, password: Pk3bGNJ}
+  - {name: Moscow, server: ru.timevpn.com, port: 10287, type: ss, cipher: aes-256-cfb, password: HK9v772}
   
 
 proxy-groups:
@@ -16,6 +17,7 @@ proxy-groups:
       - 🔥 Auto
       - ✅ Direct
       - francebordex 🇦🇱
+      - Moscow
 
   - name: ✅ Direct
     type: select
@@ -32,6 +34,7 @@ proxy-groups:
     type: url-test
     proxies:
       - francebordex 🇦🇱
+      - Moscow
     url: 'http://www.gstatic.com/generate_204'
     interval: 300
 
