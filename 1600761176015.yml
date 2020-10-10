@@ -4,49 +4,79 @@ allow-lan: true
 mode: Global
 log-level: silent
 external-controller: 127.0.0.1:9090
-
 proxies:
-  - {name: francebordex 🇦🇱, server: fr.timevpn.com, port: 10178, type: ss, cipher: aes-256-cfb, password: Pk3bGNJ}
-  - {name: Moscow, server: ru.timevpn.com, port: 10287, type: ss, cipher: aes-256-cfb, password: HK9v772}
-  - {name: Kiev, server: 130.0.233.20, port: 1015, type: ss, cipher: aes-256-cfb, password: GXu3MMR}
-  
+  - name: Moscow
+    type: ss
+    server: ru.timevpn.com
+    port: "10287"
+    cipher: aes-256-cfb
+    password: HK9v772
+  - name: Kiev
+    type: ss
+    server: ua.timevpn.com
+    port: "10159"
+    cipher: aes-256-cfb
+    password: GXu3MMR
+    _index: 1
+  - name: Frankfurt
+    type: ss
+    server: de.timevpn.com
+    port: "10286"
+    cipher: aes-256-cfb
+    password: fG6WzDw
+  - name: Manchester
+    type: ss
+    server: uk.timevpn.com
+    port: "10375"
+    cipher: aes-256-cfb
+    password: 5DZcKef
+  - name: Tallinn
+    type: ss
+    server: ee.timevpn.com
+    port: "10176"
+    cipher: aes-256-cfb
+    password: MTCtvFJ
+  - name: Kiev 1
+    type: ss
+    server: ua.timevpn.com
+    port: "10174"
+    cipher: aes-256-cfb
+    password: pDzmDvG
+  - name: Amsterdam
+    type: ss
+    server: nl.timevpn.com
+    port: "10614"
+    cipher: aes-256-cfb
+    password: zXmGuxe
+  - name: Roubaix
+    type: ss
+    server: fr.timevpn.com
+    port: "10197"
+    cipher: aes-256-cfb
+    password: yA2yYTH
+  - name: Moscow 1
+    type: ss
+    server: ru.timevpn.com
+    port: "10284"
+    cipher: aes-256-cfb
+    password: FEfenjK
 proxy-groups:
-  - name: 🔰 Select
-    type: select
-    proxies:
-      - 🔥 Auto
-      - ✅ Direct
-      - francebordex 🇦🇱
-      - Moscow
-      - Kiev
-
-  - name: ✅ Direct
-    type: select
-    proxies:
-      - DIRECT
-
-  - name: 🚫 Intercept
-    type: select
-    proxies:
-      - REJECT
-      - DIRECT
-
   - name: 🔥 Auto
     type: url-test
     proxies:
-      - francebordex 🇦🇱
       - Moscow
+      - Moscow 1
+      - Frankfurt
+      - Manchester
+      - Tallinn
       - Kiev
-    url: 'http://www.gstatic.com/generate_204'
+      - Kiev 1
+      - Amsterdam
+      - Roubaix
+    url: http://www.gstatic.com/generate_204
     interval: 300
-
-
-rules:
-  - DOMAIN-SUFFIX,google.com,🔰 Select
-  - DOMAIN-KEYWORD,google,🔰 Select
-  - DOMAIN,google.com,🔰 Select
-  - DOMAIN-SUFFIX,ad.com,🚫 Intercept
-  - SRC-IP-CIDR,192.168.1.201/32,✅ Direct
-  - IP-CIDR,127.0.0.0/8,✅ Direct
-  - GEOIP,IR,✅ Direct
-  - MATCH,,🔰 Select,dns-failed
+  - name: ✅ Direct
+    proxies:
+      - DIRECT
+    type: select
+rules: []
