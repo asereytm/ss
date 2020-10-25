@@ -5,110 +5,21 @@ mode: Global
 log-level: silent
 external-controller: 127.0.0.1:9090
 proxies:
-  - name: Moscow
+  - name: a
     type: ss
-    server: ru.timevpn.com
-    port: "10287"
-    cipher: aes-256-cfb
-    password: HK9v772
-  - name: Kiev
-    type: ss
-    server: ua.timevpn.com
-    port: "10159"
-    cipher: aes-256-cfb
-    password: GXu3MMR
-    _index: 1
-  - name: Frankfurt
-    type: ss
-    server: de.timevpn.com
-    port: "10286"
-    cipher: aes-256-cfb
-    password: fG6WzDw
-  - name: Manchester
-    type: ss
-    server: uk.timevpn.com
-    port: "10375"
-    cipher: aes-256-cfb
-    password: 5DZcKef
-  - name: Tallinn
-    type: ss
-    server: ee.timevpn.com
-    port: "10176"
-    cipher: aes-256-cfb
-    password: MTCtvFJ
-  - name: Kiev 1
-    type: ss
-    server: ua.timevpn.com
-    port: "10174"
-    cipher: aes-256-cfb
-    password: pDzmDvG
-  - name: Amsterdam
-    type: ss
-    server: nl.timevpn.com
-    port: "10614"
-    cipher: aes-256-cfb
-    password: zXmGuxe
-  - name: Roubaix
-    type: ss
-    server: fr.timevpn.com
-    port: "10197"
-    cipher: aes-256-cfb
-    password: yA2yYTH
-  - name: Moscow 1
-    type: ss
-    server: ru.timevpn.com
-    port: "10284"
-    cipher: aes-256-cfb
-    password: FEfenjK
-  - name: Vmess
-    type: vmess
-    server: aga1-1.955236.xyz
-    port: "10233"
-    uuid: 5e16e967-ffe6-4345-a258-85ae61dfe3e9
-    alterId: "2"
-    cipher: none
-    tls: true
-    network: ws
-    ws-path: ""
-  - name: TelegaTM
-    type: ss
-    server: 152.89.160.215
-    port: "33469"
+    server: 89.46.223.84
+    port: "37771"
     cipher: aes-256-gcm
-    password: 4dEMpXKFAwvNg9mvwhYStD3a
-  - name: telega
-    type: ss
-    server: 95.57.207.202
-    port: "31572"
-    cipher: aes-256-gcm
-    password: n8w4StnbVD9dmXYn4Ajt87EA
-  - name: telega 1
-    type: ss
-    server: 192.154.254.135
-    port: "34762"
-    cipher: aes-256-gcm
-    password: yxGY7A5MczQYg6UqSFx9u78V
+    password: juE2MNWkFSHQmbHDzL8FPHXt
 proxy-groups:
   - name: 🔥 Auto
     type: url-test
-    proxies:
-      - Moscow
-      - Moscow 1
-      - Frankfurt
-      - Manchester
-      - Tallinn
-      - Kiev
-      - Kiev 1
-      - Amsterdam
-      - Roubaix
-      - Vmess
-      - TelegaTM
-      - telega
-      - telega 1
+    proxies: []
     url: http://www.gstatic.com/generate_204
     interval: 300
   - name: ✅ Direct
     proxies:
       - DIRECT
+      - a
     type: select
 rules: []
