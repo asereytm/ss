@@ -11,11 +11,18 @@ proxies:
     port: "37771"
     cipher: aes-256-gcm
     password: juE2MNWkFSHQmbHDzL8FPHXt
+  - name: b
+    type: ss
+    server: 104.244.208.227
+    port: "34762"
+    cipher: aes-256-gcm
+    password: yxGY7A5MczQYg6UqSFx9u78V
 proxy-groups:
   - name: 🔥 Auto
     type: url-test
     proxies:
       - a
+      - b
     url: http://www.gstatic.com/generate_204
     interval: 300
   - name: ✅ Direct
